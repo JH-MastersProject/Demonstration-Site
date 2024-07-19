@@ -1,0 +1,21 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block stylesheet %}
+{{ block.super }}
+{% endblock %}
+{% block header_scripts %}
+{{ block.super }}
+{% endblock %}
+{% block body %}
+{{ block.super }}
+<div class="container">
+    <h1 class="mt-3 text-light">Hello {{user}}</h1>
+    {% if not user.twofact %}
+    <a class="btn btn-success" href="2fa_setup">Setup 2FA</a><br>
+    {% else %}
+    <h5>You have two factor enabled.</h5>
+    {% endif %}
+    <a class="mt-3 btn btn-danger" href="logout">logout</a>
+    {% endblock %}
+</div>

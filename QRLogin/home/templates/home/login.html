@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block stylesheet %}
+{{ block.super }}
+{% endblock %}
+{% block header_scripts %}
+{{ block.super }}
+<script src="{% static 'home/login.js' %}"></script>
+<script src="{% static 'home/instascan.min.js' %}"></script>
+
+{% endblock %}
+{% block body %}
+{{ block.super }}
+<div class="container">
+    <h1 class="text-center mt-3">Login</h1>
+
+
+    <form class="login" action="" method="">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" autocomplete="off">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Login">
+    </form>
+
+    <div class="col text-center">
+     <video class="scanner" id="preview"></video>
+
+    </div>
+</div>
+{% endblock %}
